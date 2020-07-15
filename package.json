@@ -1,0 +1,46 @@
+{
+	"name": "express-vue-workflow",
+	"version": "0.0.1",
+	"description": "A simple work flow to use Express with Vue.js",
+	"main": "dist/server/app.js",
+	"repository": "git@github.com:redcodemohammed/express-vue-workflow.git",
+	"author": "Mohammed <redcodemohammed@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"devDependencies": {
+		"@types/helmet": "^0.0.47",
+		"@types/morgan": "^1.9.1",
+		"@types/node": "^14.0.23",
+		"@vue/cli-plugin-babel": "~4.3.0",
+		"@vue/cli-plugin-eslint": "~4.3.0",
+		"@vue/cli-service": "~4.3.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^6.7.2",
+		"eslint-plugin-vue": "^6.2.2",
+		"nodemon": "^2.0.4",
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.19.0",
+		"sass-loader": "^8.0.0",
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.6",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"express": "^4.17.1",
+		"helmet": "^3.23.3",
+		"morgan": "^1.10.0",
+		"vue": "^2.6.11",
+		"vue-router": "^3.3.4"
+	},
+	"scripts": {
+		"dev-client": "vue-cli-service serve",
+		"dev-server": "nodemon --watch 'src/server/**/*.ts' --exec 'ts-node' src/server/src/app.ts",
+		"dev": "npm-run-all --parallel dev-client dev-server",
+		"build-client": "vue-cli-service build",
+		"build-server": "tsc",
+		"build": "npm-run-all build-client build-server",
+		"start-server": "node dist/server/app",
+		"start": "npm-run-all build start-server"
+	}
+}
