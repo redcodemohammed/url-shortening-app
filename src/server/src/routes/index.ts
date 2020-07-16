@@ -1,8 +1,8 @@
 import { Router } from "express";
-import homeRouter from "./home";
+import urlRouter from "./urls";
 
 export const router = Router();
 
-router.use("/api", homeRouter);
+router.use("/api", urlRouter);
 
 export default router;

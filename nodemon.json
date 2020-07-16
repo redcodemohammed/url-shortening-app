@@ -1,6 +1,7 @@
 {
 	"env": {
 		"PORT": 3000,
-		"DEV": true
+		"DEV": true,
+		"MONGODB_URL": "mongodb://redcodemohammed:kLTFWZU7x4cQ@ds111124.mlab.com:11124/url-shortner-app"
 	}
 }
