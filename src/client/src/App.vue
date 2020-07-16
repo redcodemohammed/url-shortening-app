@@ -5,17 +5,19 @@
 		</nav>
 		<div class="container">
 			<div class="box">
-				<Form />
+				<Form @url="urlShortened" :urls="urls" />
 			</div>
 		</div>
 		<div class="container">
 			<div class="box">
-				<UrlList />
+				<UrlList :urls="urls" />
 			</div>
 		</div>
 	</div>
 </template>
 <script>
+import axios from "./plugins/axios";
+
 import Header from "./components/Header.vue";
 import Form from "./components/Form.vue";
 import UrlList from "./components/UrlList.vue";
@@ -24,6 +26,19 @@ export default {
 		Header,
 		Form,
 		UrlList
+	},
+	data: () => ({
+		urls: []
+	}),
+	methods: {
+		async urlShortened(url) {
+			this.urls = [url, ...this.urls];
+		}
+	},
+	async created() {
+		let res = await axios.get("/all");
+		if (res.data.error) alert(res.data.reason);
+		else this.urls = res.data.urls;
 	}
 };
 </script>

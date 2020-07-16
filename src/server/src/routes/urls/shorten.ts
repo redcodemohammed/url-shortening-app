@@ -6,7 +6,6 @@ import urlModel from "../../models/Url";
 export default async (req: Request, res: Response) => {
 	try {
 		let url: string = req.body.url; //get the url from the body
-		if (url.endsWith("/")) url = url.slice(0, -1);
 
 		// validate that url:
 		if (!url || !validator.isURL(url))
@@ -16,6 +15,7 @@ export default async (req: Request, res: Response) => {
 				.end();
 
 		// check if already shortened:
+		if (url.endsWith("/")) url = url.slice(0, -1);
 		let shortVersion = await urlModel.findOne({ originalUrl: url });
 
 		// shorten the url:
@@ -33,7 +33,7 @@ export default async (req: Request, res: Response) => {
 			.status(200)
 			.json({ error: false, url: shortVersion })
 			.end();
-	} catch {
+	} catch (err) {
 		return res
 			.status(500)
 			.json({ error: true, reason: "Something wrong in our side :(" })

@@ -12,13 +12,39 @@
 	</div>
 </template>
 <script>
+import axios from "../plugins/axios";
 export default {
 	data: () => ({
 		url: ""
 	}),
+	props: ["urls"],
 	methods: {
-		shorten() {
-			console.log(this.url);
+		async shorten() {
+			let oldUrl = this.urls.find(u => u.originalUrl === this.url);
+			if (oldUrl) {
+				alert("The short url was copied.");
+				this.url = oldUrl.shortUrl;
+				this.copy(oldUrl.shortUrl);
+			} else if (this.url) {
+				let res = await axios.post("/shorten", { url: this.url });
+				if (res.data.error) alert(res.data.reason);
+				else {
+					alert("The short url was copied.");
+					this.url = res.data.url.shortUrl;
+					this.copy(res.data.url.shortUrl);
+					this.$emit("url", res.data.url);
+				}
+			}
+		},
+		copy(val) {
+			let textArea = document.createElement("textarea");
+			let container = this.$el.querySelector(".container");
+			container.appendChild(textArea);
+
+			textArea.innerText = val;
+			textArea.select();
+			document.execCommand("copy");
+			container.removeChild(textArea);
 		}
 	}
 };

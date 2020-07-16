@@ -3,7 +3,7 @@ import urlModel from "../../models/Url";
 
 export default async (req: Request, res: Response) => {
 	try {
-		let urls = await urlModel.find();
+		let urls = await (await urlModel.find().limit(5)).reverse();
 
 		return res
 			.status(200)

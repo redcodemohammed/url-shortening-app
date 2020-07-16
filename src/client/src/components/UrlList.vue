@@ -18,58 +18,7 @@ export default {
 	components: {
 		Url
 	},
-	data: () => ({
-		urls: [
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			},
-			{
-				originalUrl: "https://google.com",
-				shortUrl: "https://google.com"
-			}
-		]
-	})
+	props:["urls"]
 };
 </script>
 <style scoped>

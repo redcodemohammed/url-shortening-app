@@ -1,6 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import cors from "cors";
 import { createServer } from "http";
 import { connect } from "mongoose";
 import { resolve } from "path";
@@ -40,6 +41,7 @@ app.use(
 );
 app.use(morgan("dev"));
 app.use(express.json());
+if (DEV) app.use(cors());
 
 // add routes here
 app.use(router);
