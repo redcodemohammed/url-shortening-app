@@ -1,9 +1,9 @@
 {
-	"name": "express-vue-workflow",
+	"name": "url-shortening-app",
 	"version": "0.0.1",
-	"description": "A simple work flow to use Express with Vue.js",
+	"description": "A simple app that shorten urls uses Express with Vue.js",
 	"main": "dist/server/app.js",
-	"repository": "git@github.com:redcodemohammed/express-vue-workflow.git",
+	"repository": "git@github.com:redcodemohammed/url-shortening-app.git",
 	"author": "Mohammed <redcodemohammed@gmail.com>",
 	"license": "MIT",
 	"private": true,
