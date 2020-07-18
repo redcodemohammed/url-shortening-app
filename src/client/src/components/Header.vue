@@ -1,7 +1,6 @@
 <template>
 	<div class="header">
-		<a href="#default" class="logo">Url Shorter</a>
-		<div class="header-right"></div>
+		<a href="/" class="logo">Url Shorter</a>
 	</div>
 </template>
 <style scoped>
@@ -42,20 +41,12 @@
 	color: white;
 }
 
-/* Float the link section to the right */
-.header-right {
-	float: right;
-}
-
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
 	.header a {
 		float: none;
 		display: block;
 		text-align: left;
-	}
-	.header-right {
-		float: none;
 	}
 }
 </style>
