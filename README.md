@@ -1,1 +1,2 @@
-# A simple work flow to use Express with Vue.js
+# URL shortening APP.
+A simple app to shorten urls, based on [express-vue-workflow](https://github.com/redcodemohammed/express-vue-workflow).
